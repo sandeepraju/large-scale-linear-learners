@@ -5,6 +5,8 @@
 import sys
 import numpy as np
 from sklearn.metrics import accuracy_score as accuracy
+from sklearn.metrics import precision_score as precision
+from sklearn.metrics import recall_score as recall
 from sklearn.metrics import roc_auc_score as AUC
 from sklearn.metrics import confusion_matrix
 
@@ -23,6 +25,8 @@ print "loading y..."
 y = np.loadtxt( y_file, usecols= [0] )
 
 print "accuracy:", accuracy( y, y_predicted )
+print "precision:", precision( y, y_predicted, average='binary' )
+print "recall:", recall( y, y_predicted, average='binary' )
 print "AUC:", AUC( y, p )
 
 print
